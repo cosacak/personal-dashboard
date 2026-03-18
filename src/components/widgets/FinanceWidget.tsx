@@ -36,7 +36,7 @@ export function FinanceWidget() {
   }
 
   useEffect(() => {
-    fetchData();
+    void fetchData(); // eslint-disable-line react-hooks/set-state-in-effect
   }, []);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -127,7 +127,7 @@ export function FinanceWidget() {
             placeholder="Title"
             value={form.title}
             onChange={(e) => setForm({ ...form, title: e.target.value })}
-            className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full text-sm text-gray-900 border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
           <input
@@ -135,7 +135,7 @@ export function FinanceWidget() {
             placeholder="Amount"
             value={form.amount || ""}
             onChange={(e) => setForm({ ...form, amount: parseFloat(e.target.value) || 0 })}
-            className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full text-sm text-gray-900 border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             min="0"
             step="0.01"
             required
@@ -143,7 +143,7 @@ export function FinanceWidget() {
           <select
             value={form.category}
             onChange={(e) => setForm({ ...form, category: e.target.value })}
-            className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full text-sm text-gray-900 border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             {CATEGORIES[form.type].map((cat) => (
               <option key={cat} value={cat}>{cat}</option>
